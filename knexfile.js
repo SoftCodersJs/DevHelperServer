@@ -11,7 +11,7 @@ module.exports = {
       password: process.env.DATABASE_PASSWORD
     },
     migrations: {
-      directory: './src/database/migrations/'
+      directory: `${__dirname}/src/database/migrations`
     },
   },
 
