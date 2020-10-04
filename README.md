@@ -11,7 +11,8 @@ DATABASE_HOST= '<host do banco de dados>'
 DATABASE_USERNAME='<usuário do banco de dados>'
 DATABASE_PASSWORD='<senha do banco de dados>'
 ```
-**OBS** troque os **<>** pela informação que se pede.
+**OBS** troque os **<>** pela informação que se pede.  
+Em seguida execute ```npx knex migrate:latest``` para criar as tabelas no banco  de dados.
 
 ## Como iniciar o back-end?
 
