@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  knex.schema.createTable('users',function(table){
+  return knex.schema.createTable('users',function(table){
     table.increments('id').primary();
     table.string('cpf').notNullable();
     table.decimal('score', 10, 2).notNullable();
@@ -17,5 +17,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTableIfExists('users');
+  return knex.schema.dropTableIfExists('users');
 };

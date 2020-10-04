@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  knex.schema.createTable('questions_has_comments',function(table){
+  return knex.schema.createTable('questions_has_comments',function(table){
     table.integer('questions_id').unsigned();
     table.integer('comments_id').unsigned();
     table.foreign('questions_id').references('questions.id')
@@ -13,5 +13,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTableIfExists('questions_has_comments');
+  return knex.schema.dropTableIfExists('questions_has_comments');
 };

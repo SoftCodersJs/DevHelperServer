@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  knex.schema.createTable('skills',function(table){
+  return knex.schema.createTable('skills',function(table){
     table.increments('id').primary();
     table.string('name').notNullable();
     table.string('image');
@@ -11,5 +11,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTableIfExists('skills');
+  return knex.schema.dropTableIfExists('skills');
 };

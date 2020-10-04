@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  knex.schema.createTable('comments',function(table){
+  return knex.schema.createTable('comments',function(table){
     table.increments('id').primary();
     table.string('comment').notNullable();
     
@@ -10,5 +10,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    knex.schema.dropTableIfExists('comments');
+    return knex.schema.dropTableIfExists('comments');
 };

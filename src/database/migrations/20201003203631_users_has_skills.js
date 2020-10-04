@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    knex.schema.createTable('user_has_skills',function(table){
+    return knex.schema.createTable('user_has_skills',function(table){
       table.integer('users_id').unsigned();
       table.integer('skills_id').unsigned();
       table.foreign('users_id').references('users.id')
@@ -13,5 +13,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTableIfExists('user_has_skills');
+  return knex.schema.dropTableIfExists('user_has_skills');
 };

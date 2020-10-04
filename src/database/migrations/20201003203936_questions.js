@@ -1,11 +1,11 @@
 
 exports.up = function(knex) {
-  knex.schema.createTable('questions',function(table){
+  return knex.schema.createTable('questions',function(table){
     table.increments('id').primary();
     table.string('title').notNullable();
-    table.text('content').notNullable().unique();
+    table.text('content').notNullable();
     table.integer('likes').notNullable();
-    table.string('users_id').unsigned();
+    table.integer('users_id').unsigned();
     table.foreign('users_id').references('users.id')
 
     table.timestamp('created_at').defaultTo(knex.fn.now());
@@ -14,5 +14,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTableIfExists('questions');
+  return knex.schema.dropTableIfExists('questions');
 };
