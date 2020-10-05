@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import database from "../database";
 
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 
 export default {
   async create(req:Request, res:Response){
