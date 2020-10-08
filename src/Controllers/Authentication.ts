@@ -1,4 +1,4 @@
-import { json, Request, Response } from "express";
+import { json, Request, Response, NextFunction } from "express";
 import { config }from 'dotenv';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -23,7 +23,7 @@ class Authentication {
                 return res.status(401).send({ message: "authentication failure" });
             }
 
-            const {email, id } = results;
+            const { email, id } = results;
 
             if(results) {
                 bcrypt.compare(passwordUser, results.password, (err, results) => {
@@ -37,7 +37,7 @@ class Authentication {
                             email: email
                         }, String(process.env.JWT_KEY),
                         {
-                            expiresIn: "60s"
+                            expiresIn: "1h"
                         });
 
                         return res.status(201).send({
