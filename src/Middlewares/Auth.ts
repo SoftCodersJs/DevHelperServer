@@ -26,7 +26,7 @@ class Auth {
                 return res.status(401).send({ error: 'Token malformatted' })
             }
 
-            jwt.verify(token, String(process.env.JWT_KEY), (err, decode ) => {
+            jwt.verify(token, process.env.JWT_ACESS, (err, decode ) => {
                 if(err) {
                     return res.status(401).send({ error: "Token invalid"})
                 }
